@@ -29,6 +29,9 @@ const unauthenticatedOptions = (
         <Nav.Link>
 		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
         </Nav.Link>
+		<Nav.Link>
+		    <Link to='Profile' style={linkStyle}>Profile</Link>
+        </Nav.Link>
 	</>
 )
 

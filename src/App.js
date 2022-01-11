@@ -27,7 +27,6 @@ const App = () => {
     console.log('clear user ran')
     setUser(null)
   }
-
 	const deleteAlert = (id) => {
 		setMsgAlerts((prevState) => {
 			return (prevState.filter((msg) => msg.id !== id) )
@@ -63,7 +62,7 @@ const App = () => {
 			console.log(err)
 		})
 	}
-		
+		console.log(allUsers);
 
 
 		return (
@@ -72,11 +71,11 @@ const App = () => {
 				<Routes>
 					<Route path='/' element={<HomeScreen msgAlert={msgAlert} allUsers={allUsers} user={user} />} />
 					<Route
-						path='/sign-up'
+						path='/sign-up/'
 						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
 					/>
 					<Route
-						path='/sign-in'
+						path='/sign-in/'
 						element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
 					/>
           <Route

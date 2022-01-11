@@ -5,7 +5,7 @@ import AllListings from './AllListings'
 
 const HomeScreen = (props) => {
 	// const { msgAlert, user } = props
-	console.log('props in home', props)
+	console.log('props in home', props.allUsers)
 
 	const [searchResults, setSearchResults] = useState([])
 
