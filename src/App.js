@@ -1,9 +1,5 @@
 // import React, { Component, Fragment } from 'react'
-<<<<<<< HEAD
-import React, { useState, Fragment } from 'react'
-=======
 import React, { useState, useEffect, Fragment } from 'react'
->>>>>>> 4e2dd09343173ac9f9ac755331b7a21b253b5937
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
@@ -11,29 +7,19 @@ import { v4 as uuid } from 'uuid'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/shared/Header'
 import RequireAuth from './components/shared/RequireAuth'
-<<<<<<< HEAD
-import Home from './components/Home'
-=======
 import HomeScreen from './screens/HomeScreen'
->>>>>>> 4e2dd09343173ac9f9ac755331b7a21b253b5937
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-<<<<<<< HEAD
-=======
 import axios from 'axios'
->>>>>>> 4e2dd09343173ac9f9ac755331b7a21b253b5937
 
 const App = () => {
 
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
-<<<<<<< HEAD
-=======
   const [allUsers, setAllUsers] = useState([])
 
->>>>>>> 4e2dd09343173ac9f9ac755331b7a21b253b5937
 
   console.log('user in app', user)
   console.log('message alerts', msgAlerts)
@@ -52,13 +38,12 @@ const App = () => {
 		const id = uuid()
 		setMsgAlerts(() => {
 			return (
+				
 				[{ heading, message, variant, id }]
       )
 		})
 	}
 
-<<<<<<< HEAD
-=======
 	useEffect(() =>{
 		console.log('getting all users')
 		getUsers()
@@ -78,23 +63,16 @@ const App = () => {
 			console.log(err)
 		})
 	}
+		
 
 
-
->>>>>>> 4e2dd09343173ac9f9ac755331b7a21b253b5937
 		return (
 			<Fragment>
 				<Header user={user} />
 				<Routes>
-<<<<<<< HEAD
-					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
-					<Route
-						path='/sign-up'
-=======
 					<Route path='/' element={<HomeScreen msgAlert={msgAlert} allUsers={allUsers} user={user} />} />
 					<Route
-						path='/sign-up/'
->>>>>>> 4e2dd09343173ac9f9ac755331b7a21b253b5937
+						path='/sign-up'
 						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
 					/>
 					<Route
@@ -131,8 +109,4 @@ const App = () => {
 		)
 }
 
-<<<<<<< HEAD
 export default App
-=======
-export default App
->>>>>>> 4e2dd09343173ac9f9ac755331b7a21b253b5937
