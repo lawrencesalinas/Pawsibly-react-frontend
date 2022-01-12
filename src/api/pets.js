@@ -1,26 +1,54 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-export const getUsersPets = (user) => {
+
+export const getUsersAndPets = (user) => {
+
     return axios({
         method: 'GET',
-        url: `${apiUrl}/problems/user`,
+        url: `${apiUrl}/profile`,
         headers: {
-            Authorization: `Token token=${user.token}`
+            'Authorization': `Token ${user.token}`
         }
     })
 }
 
-export const addPet = (user, newPet) => {
+export const getSinglePet = (user,id) => {
+
+    return axios({
+        method: 'GET',
+        url: `${apiUrl}/pets${id}`,
+        headers: {
+            'Authorization': `Token =${user.token}`
+        }
+    })
+}
+
+// export const getSinglePet = (user) => {
+//     return axios({
+//         method: 'GET',
+//         url: apiUrl + '/pets',
+//         headers: {
+//             'Authorization': `Token ${user.token}`
+//         },
+//         data: {
+//             pet: {
+               
+//             }
+//         } 
+//     })
+// }
+
+export const createPet = (user) => {
     return axios({
         method: 'POST',
         url: apiUrl + '/pets',
         headers: {
-            Authorization: `Token token=${user.token}`
+            'Authorization': `Token ${user.token}`
         },
         data: {
             pet: {
-                name: newPet.name
+                
             }
         } 
     })

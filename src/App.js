@@ -8,11 +8,14 @@ import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAl
 import Header from './components/shared/Header'
 import RequireAuth from './components/shared/RequireAuth'
 import HomeScreen from './screens/HomeScreen'
+import ProfileScreen from './components/Profile/ProfileScreen'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import axios from 'axios'
+import PetDetail from './components/Profile/PetDetail'
+
 
 const App = () => {
 
@@ -54,7 +57,7 @@ const App = () => {
 			method: 'GET',
 		})
 		.then(foundUsers=>{
-			console.log('finding users', foundUsers)
+			// console.log('finding users', foundUsers)
 			setAllUsers(foundUsers)
 			console.log('all users:', foundUsers)
 		})
@@ -62,22 +65,25 @@ const App = () => {
 			console.log(err)
 		})
 	}
-		console.log(allUsers);
+
+
+
+
+	
 
 
 		return (
 			<Fragment>
+				
 				<Header user={user} />
+				
 				<Routes>
 					<Route path='/' element={<HomeScreen msgAlert={msgAlert} allUsers={allUsers} user={user} />} />
-					<Route
-						path='/sign-up/'
-						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
-					/>
-					<Route
-						path='/sign-in/'
-						element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
-					/>
+					<Route path='/profile' element={<ProfileScreen  user={user}    />} />
+					<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />}/>
+					<Route path='/sign-in'element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
+					<Route path='/pets'element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
+					<Route path='/pets/:id 'element={<PetDetail msgAlert={msgAlert} setUser={setUser} />}/>
           <Route
             path='/sign-out'
             element={
