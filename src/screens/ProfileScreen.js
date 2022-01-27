@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { getUsersAndPets } from "../../api/pets";
-import ProfilePets from "./ProfilePets";
+import { getUsersAndPets } from "../api/pets";
+import ProfilePets from "../components/ProfilePets";
 
-const ProfileScreen = (props) => {
+const ProfileScreen = ({user}) => {
   // user data and user pet is called here
   const [userPets, setUserPets] = useState([]);
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
-    getUsersAndPets(props.user)
+    getUsersAndPets(user)
       .then((user) => {
         console.log(user);
         let userInfo = user.data.user;
