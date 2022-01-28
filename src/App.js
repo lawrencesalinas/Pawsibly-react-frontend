@@ -1,4 +1,4 @@
-import React, { useState,  Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 
@@ -13,12 +13,11 @@ import SignIn from "./components/auth/SignIn";
 import SignOut from "./components/auth/SignOut";
 import ChangePassword from "./components/auth/ChangePassword";
 import PetDetailScreen from "./screens/PetDetailScreen";
+import SitterDetail from "./screens/SitterDetail";
 
 const App = () => {
   const [user, setUser] = useState(null);
   const [msgAlerts, setMsgAlerts] = useState([]);
-  console.log("user in app", user);
-  console.log("message alerts", msgAlerts);
   const clearUser = () => {
     console.log("clear user ran");
     setUser(null);
@@ -39,7 +38,6 @@ const App = () => {
   return (
     <Fragment>
       <Header user={user} />
-
       <Routes>
         <Route
           path="/"
@@ -78,6 +76,7 @@ const App = () => {
             </RequireAuth>
           }
         />
+        <Route path="/sitterlisting/:id" element={<SitterDetail />} />
       </Routes>
       {msgAlerts.map((msgAlert) => (
         <AutoDismissAlert

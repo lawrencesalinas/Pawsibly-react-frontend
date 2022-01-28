@@ -17,7 +17,7 @@ const ProfileScreen = ({user}) => {
         setUserData(userInfo);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [user]);
 
   return (
     <div>

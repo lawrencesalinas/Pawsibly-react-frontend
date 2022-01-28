@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import apiUrl from "../apiConfig";
-import { Button } from 'react-bootstrap'
+import { Button } from "react-bootstrap";
+import AllSitters from "../components/AllSitters";
 
 const HomeScreen = (props) => {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [sitters, setSitters] = useState([]);
-
 
   useEffect(() => {
     async function fetchData() {
@@ -17,33 +17,25 @@ const HomeScreen = (props) => {
     fetchData();
   }, []);
 
-
   const searchItems = (e) => {
     e.preventDefault();
-   let filteredResults =  sitters.filter(sitter=> {
-        return (
-            sitter.zipcode === search
-        )
-       
-            // sitter.zipcode.includes(search).toString())
-    })
-    console.log('filter', filteredResults);
-    // const filteredListings = sitters.filter((u) => {
-    //   return u.zipcode.toString().includes(search.toString());
-    // });
-    // setSearchResults(filteredListings);
-    // console.log("sitters search results", filteredListings);
+    let filteredSitters = sitters.filter((sitter) => {
+      return (
+        sitter.city.toLowerCase().includes(search.toLowerCase()) ||
+        sitter.zipcode.toString().includes(search.toString())
+      );
+    });
+    setSearchResults(filteredSitters);
   };
   return (
     <>
       <input
-      
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <Button onClick ={searchItems}>search</Button>
-      <p>{search}</p>
+      <Button onClick={searchItems}>search</Button>
+    <AllSitters sitters={searchResults}/>
     </>
   );
 };
