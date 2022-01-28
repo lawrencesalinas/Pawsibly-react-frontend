@@ -14,6 +14,7 @@ import SignOut from "./components/auth/SignOut";
 import ChangePassword from "./components/auth/ChangePassword";
 import PetDetailScreen from "./screens/PetDetailScreen";
 import SitterDetail from "./screens/SitterDetail";
+import PetScreen from "./screens/PetScreen";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -54,7 +55,7 @@ const App = () => {
         />
         <Route
           path="/pets"
-          element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+          element={<PetScreen msgAlert={msgAlert} user={user} />}
         />
         <Route
           path="/pets/:id "
