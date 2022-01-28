@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUsersAndPets } from "../api/pets";
-import ProfilePets from "../components/ProfilePets";
+import UserPets from '../components/UserPets'
 
 const ProfileScreen = ({user}) => {
   // user data and user pet is called here
@@ -17,7 +17,7 @@ const ProfileScreen = ({user}) => {
         setUserData(userInfo);
       })
       .catch((err) => console.error(err));
-  }, [user]);
+  }, []);
 
   return (
     <div>
@@ -26,7 +26,7 @@ const ProfileScreen = ({user}) => {
       <h2>{userData.namer}</h2>
 
       <h1>List of owner pet</h1>
-      <ProfilePets myPets={userPets} />
+      <UserPets myPets={userPets} />
     </div>
   );
 };
