@@ -15,10 +15,16 @@ export default function ProfileScreen(props) {
   const [trigger, setTrigger] = useState(false)
   useEffect(() => {
     async function fetchData() {
-      const { data } = await axios.get(`${apiUrl}/profile`);
-      setSitters(data.sitters);
+      const { data } = await axios.get(`${apiUrl}/profile`,
+      {
+        headers: {
+          'Authorization': `Token ${props.user.token}`
+      }
+      })
+
+      setUserData(data.user);
     }
-    fetchData();
+    fetchData()
   }, [trigger]);
 
 console.log(userData);

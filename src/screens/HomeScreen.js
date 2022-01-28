@@ -11,9 +11,9 @@ const HomeScreen = (props) => {
 
   useEffect(() => {
     async function fetchData() {
-      const { data } = await axios.get(`${apiUrl}/sitters`);
-      setSitters(data.sitters);
-    }
+      const { data } = await axios.get(`${apiUrl}/sitters`)
+      setSitters(data.sitters)
+  }
     fetchData();
   }, []);
 
