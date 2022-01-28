@@ -25,8 +25,7 @@ const ProfileScreen = ({user}) => {
       <h1>{userData.email}</h1>
       <h2>{userData.namer}</h2>
 
-      <h1>List of owner pet</h1>
-      <UserPets myPets={userPets} />
+     
     </div>
   );
 };
