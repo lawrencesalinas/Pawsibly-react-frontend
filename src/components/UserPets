@@ -7,7 +7,7 @@ import Footer from "../Footer";
 import apiUrl from "../../apiConfig";
 
 
-export default function UserPets(props) {
+function UserPets(props) {
   //   console.log("hello", props.myPets);
   props.myPets.map((pet) => {
     return (
@@ -72,3 +72,5 @@ export default function UserPets(props) {
     </div>
   );
 }
+
+export default UserPets

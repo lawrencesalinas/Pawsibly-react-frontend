@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import apiUrl from "../apiConfig";
+import UserPets from "../components/UserPets";
+import Footer from "../components/Footer";
+
 
 function PetScreen(props) {
   const [userPets, setUserPets] = useState([]);
   const [trigger, setTrigger] = useState(false);
-  const [show, setShow] = useState(false);
+
 
 
   useEffect(() => {
@@ -20,19 +23,19 @@ function PetScreen(props) {
     }
     fetchPets();
   }, [trigger]);
-  console.log("HELLLOOOOOOOOOOOOO", userPets);
+
   return (
     <div className="pet_screen">
-      {/* <ProfilePets
-        myPets={userPets}
-        user={props.user}
-        setTrigger={setTrigger}
-      />
-      <div className="createpets">
-        <CreatePets user={props.user} setTrigger={setTrigger} />
-      </div> */}
+<Footer/>
     </div>
   );
 }
 
 export default PetScreen;
+
+
+
+
+{/* <div className="createpets">
+{/* <CreatePets user={props.user} setTrigger={setTrigger} /> */}
+// </div> */}

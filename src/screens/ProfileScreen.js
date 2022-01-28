@@ -66,7 +66,7 @@ export default function ProfileScreen(props) {
 
         <Col md={3}>
           <div className="profilescreen_info">
-            <h3 class="flow-text">Hello, {userData.last_name}!</h3>
+            <h3 className="flow-text">Hello, {userData.last_name}!</h3>
 
             <Row className="profilescreen_buttons">
               <Link className="link" to={`/mybookings/${props.user.id}`}>
@@ -87,7 +87,7 @@ export default function ProfileScreen(props) {
           </Link>
         </Col>
         <Col>
-          <i class="fas fa-paw paw fa-10x"></i>
+          <i className="fas fa-paw paw fa-10x"></i>
         </Col>
       </Row>
       <Footer />
