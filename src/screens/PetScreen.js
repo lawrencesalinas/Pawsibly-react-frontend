@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import apiUrl from "../apiConfig";
 import UsersPets from "../components/UsersPets";
+import CreatePet from '../components/CreatePet'
 
 
 function PetScreen(props) {
@@ -30,6 +31,10 @@ myPets={userPets}
 user={props.user}
 setTrigger={setTrigger}
 />
+
+<div className="createpets">
+ <CreatePet user={props.user} setTrigger={setTrigger} /> 
+ </div> 
     </div>
   );
 }
@@ -38,7 +43,3 @@ export default PetScreen;
 
 
 
-
-{/* <div className="createpets">
-{/* <CreatePets user={props.user} setTrigger={setTrigger} /> */}
-// </div> */}

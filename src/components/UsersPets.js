@@ -7,7 +7,7 @@ import { Image } from 'react-bootstrap'
 import apiUrl from "../apiConfig";
 
 function UsersPets(props) {
-  //   console.log("hello", props.myPets);
+    console.log("hello", props);
   props.myPets.map((pet) => {
     return (
       <Link key={pet.id} to={`/pets/${pet.id}`}>
@@ -16,22 +16,22 @@ function UsersPets(props) {
     );
   });
 
-//   const deletePetById = (id) => {
-//     axios({
-//       url: `http://localhost:8000/pets/${id}`,
-//       method: "DELETE",
-//       headers: {
-//         Authorization: `Token ${props.user.token}`,
-//       },
-//     })
-//       .then((foundPet) => {
-//         console.log("pet deleted");
-//         props.setTrigger((x) => !x);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   };
+  const deletePetById = (id) => {
+    axios({
+      url: `http://localhost:8000/pets/${id}`,
+      method: "DELETE",
+      headers: {
+        Authorization: `Token ${props.user.token}`,
+      },
+    })
+      .then((foundPet) => {
+        console.log("pet deleted");
+        props.setTrigger((x) => !x);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
 
   return (
@@ -55,13 +55,13 @@ function UsersPets(props) {
                   <h4 className="pet_name">{pet.name}</h4>
                 </Link>
                 <br></br>
-                {/* <button
+                <button
                   class="btn-floating btn-small waves-effect waves-light red accent-2"
                   style={{ margin: "10px" }}
                   onClick={() => deletePetById(pet.id)}
                 >
                   <i class="material-icons">delete</i>
-                </button> */}
+                </button>
               </div>
             ))}
       </div>

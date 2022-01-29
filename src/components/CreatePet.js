@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Icon } from 'react-materialize'
 import {Row,Col, Button, Modal } from 'react-bootstrap'
-import './ProfilePets.css'
 
 
 export default function PetForm(props) {
@@ -45,7 +44,7 @@ export default function PetForm(props) {
 
   return (
     <div>
-      <button class="bone">
+      {/* <button class="bone">
     <div class="c1"></div>
     <div class="c2"></div>
     <div class="c3"></div>
@@ -55,7 +54,7 @@ export default function PetForm(props) {
        Add Pet
       </div>
     </div>
-</button>
+</button> */}
       {/* <Button variant="primary" onClick={handleShow}>
 Add Pet
 </Button>
