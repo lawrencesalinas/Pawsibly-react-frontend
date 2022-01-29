@@ -4,6 +4,7 @@ import apiUrl from "../apiConfig";
 import UsersPets from "../components/UsersPets";
 import CreatePet from '../components/CreatePet'
 import './css/PetScreen.css'
+import Footer from "../components/Footer";
 
 
 function PetScreen(props) {
@@ -36,6 +37,7 @@ setTrigger={setTrigger}
 <div className="createpets">
  <CreatePet user={props.user} setTrigger={setTrigger} /> 
  </div> 
+ <Footer/>
     </div>
   );
 }

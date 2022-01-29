@@ -1,13 +1,13 @@
 .pet_screen{
     display: flex;
     flex-direction: column;
-    width:80vw;
     margin: 0 auto;
-    margin-top: 5%;
+    margin-top: 2%;
 
 }
 
 .createpets{
     margin: 0 auto;
     margin-top: 5%;
+    margin-bottom: 3%;
 }

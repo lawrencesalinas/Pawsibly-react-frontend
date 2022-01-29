@@ -5,16 +5,12 @@ import { Link } from "react-router-dom";
 import { Row, Image, Col, Card } from "react-bootstrap";
 import Rating from "../components/Rating";
 import apiUrl from "../apiConfig";
+import ReviewList from "../components/ReviewList";
 import './css/SitterDetail.css'
 
-
-
 export default function SitterDetail() {
-
-
   const [singleSitter, setSingleSitter] = useState([]);
   const [sitterReviews, setSitterReviews] = useState([]);
-
   let {id} = useParams();
 
   useEffect(() => {
@@ -33,9 +29,6 @@ export default function SitterDetail() {
     }
     fetchData();
   }, [id])
-
-
-
 
   return (
     <div className="listingdetail">
@@ -93,7 +86,7 @@ export default function SitterDetail() {
                 return (
                   <li className="list" key={review.id}>
                     {/* pass singleSitters array to singleSitter component */}
-                    {/* <ReviewList review={review} /> */}
+                    <ReviewList review={review} />
                   </li>
                 );
               })}
