@@ -6,6 +6,7 @@ import { Row, Image, Col, Card } from "react-bootstrap";
 import Rating from "../components/Rating";
 import apiUrl from "../apiConfig";
 import ReviewList from "../components/ReviewList";
+import Footer from "../components/Footer";
 import './css/SitterDetail.css'
 
 export default function SitterDetail() {
@@ -34,12 +35,13 @@ export default function SitterDetail() {
     <div className="listingdetail">
       <Row>
         <h1>
-          {singleSitter.first_name} {singleSitter.last_name}
+          {singleSitter.first_name} {singleSitter.last_name}{" "}
         </h1>
         <Row>
           <Col md={2}>
             <Rating
               value={singleSitter.rating}
+              text={`${singleSitter.numReviews} reviews`}
               color={"#f8e825"}
             />
           </Col>
@@ -50,7 +52,7 @@ export default function SitterDetail() {
           </Col>
         </Row>
         <Row>
-          <Image src="/cat.png" />
+          <Image src="/logo512.png" />
         </Row>
         <hr></hr>
         <Row>
@@ -99,15 +101,16 @@ export default function SitterDetail() {
                 <h5>share your thought with other pet owners</h5>
                 <Link
                   to={`/review/${singleSitter.id}`}
-                  className="btn-floating btn-large waves-effect waves-light yellow"
+                  class="btn-floating btn-large waves-effect waves-light yellow"
                 >
-                  <i className="material-icons">comment</i>
+                  <i class="material-icons">comment</i>
                 </Link>
               </div>
             </Card>
           </Col>
         </Row>
       </Row>
+      <Footer/>
     </div>
   );
 }
