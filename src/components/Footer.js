@@ -4,7 +4,7 @@ function Footer() {
   return <div>
       <footer className="page-footer">
 				<div className="container">
-					<div class="row">
+					<div className="row">
 						<div className="col l6 s12">
 							<h5 className="white-text">About</h5>
 							<p className="grey-text text-lighten-4">We are three software developers who wanted to create an easy and reliable source
@@ -21,9 +21,9 @@ function Footer() {
 					</div>
 				</div>
 				<div className="footer-copyright">
-					<div class="container">
+					<div className="container">
 						© 2022 Pawsibly
-						<a class="grey-text text-lighten-4 right" style={{ 'textDecoration': 'none' }} href="https://github.com/kellylarrea/pawsibly-react">Learn more on GitHub</a>
+						<a className="grey-text text-lighten-4 right" style={{ 'textDecoration': 'none' }} href="https://github.com/kellylarrea/pawsibly-react">Learn more on GitHub</a>
 					</div>
 				</div>
 			</footer>

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import apiUrl from "../apiConfig";
-import UserPets from "../components/UserPets";
-import Footer from "../components/Footer";
+import UsersPets from "../components/UsersPets";
 
 
 function PetScreen(props) {
@@ -26,7 +25,11 @@ function PetScreen(props) {
 
   return (
     <div className="pet_screen">
-<Footer/>
+<UsersPets
+myPets={userPets}
+user={props.user}
+setTrigger={setTrigger}
+/>
     </div>
   );
 }
