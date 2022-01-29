@@ -8,6 +8,7 @@ import apiUrl from "../apiConfig";
 import ReviewList from "../components/ReviewList";
 import Footer from "../components/Footer";
 import './css/SitterDetail.css'
+import CreateReview from "../components/CreateReview";
 
 export default function SitterDetail() {
   const [singleSitter, setSingleSitter] = useState([]);
@@ -99,12 +100,7 @@ export default function SitterDetail() {
               <div className="reviewbox">
                 <h3>Review this sitter</h3>
                 <h5>share your thought with other pet owners</h5>
-                <Link
-                  to={`/review/${singleSitter.id}`}
-                  class="btn-floating btn-large waves-effect waves-light yellow"
-                >
-                  <i class="material-icons">comment</i>
-                </Link>
+                <CreateReview/>
               </div>
             </Card>
           </Col>

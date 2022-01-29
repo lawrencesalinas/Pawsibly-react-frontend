@@ -64,8 +64,6 @@ function UsersPets(props) {
               </div>
             ))}
       </div>
-      <h6>add a pet</h6>
-
     </div>
   );
 }

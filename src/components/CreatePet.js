@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Icon } from "react-materialize";
-import { Row, Col, Button, Modal } from "react-bootstrap";
+import {  Button, Modal } from "react-bootstrap";
 import './css/CreatePet.css'
 
 export default function PetForm(props) {

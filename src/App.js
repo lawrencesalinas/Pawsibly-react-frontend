@@ -40,43 +40,14 @@ const App = () => {
     <Fragment>
       <Header user={user} />
       <Routes>
-        <Route
-          path="/"
-          element={<HomeScreen msgAlert={msgAlert} user={user} />}
-        />
+        <Route path="/" element={<HomeScreen msgAlert={msgAlert} user={user} />}/>
         <Route path="/profile" element={<ProfileScreen user={user} />} />
-        <Route
-          path="/sign-up"
-          element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
-        />
-        <Route
-          path="/sign-in"
-          element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
-        />
-        <Route
-          path="/pets"
-          element={<PetScreen msgAlert={msgAlert} user={user} />}
-        />
-        <Route
-          path="/pets/:id "
-          element={<PetDetailScreen msgAlert={msgAlert} setUser={setUser} />}
-        />
-        <Route
-          path="/sign-out"
-          element={
-            <RequireAuth user={user}>
-              <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/change-password"
-          element={
-            <RequireAuth user={user}>
-              <ChangePassword msgAlert={msgAlert} user={user} />
-            </RequireAuth>
-          }
-        />
+        <Route path="/sign-up" element={<SignUp msgAlert={msgAlert} setUser={setUser} />}/>
+        <Route path="/sign-in" element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
+        <Route path="/pets" element={<PetScreen msgAlert={msgAlert} user={user} />}/>
+        <Route path="/pets/:id " element={<PetDetailScreen msgAlert={msgAlert} setUser={setUser} />}/>
+        <Route path="/sign-out" element={<RequireAuth user={user}><SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} /></RequireAuth>}/>
+        <Route path="/change-password" element={<RequireAuth user={user}><ChangePassword msgAlert={msgAlert} user={user} /></RequireAuth>}/>
         <Route path="/sitterlisting/:id" element={<SitterDetail />} />
       </Routes>
       {msgAlerts.map((msgAlert) => (
@@ -90,7 +61,7 @@ const App = () => {
         />
       ))}
     </Fragment>
-  );
-};
+  )
+}
 
 export default App;
