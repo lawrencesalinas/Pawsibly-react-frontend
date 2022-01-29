@@ -15,7 +15,6 @@ export default function PetForm(props) {
 
   const createPet = (e) => {
 
-   
    const uploadData = new FormData()
    uploadData.append('image', image)
    uploadData.append('name', name)
@@ -44,20 +43,18 @@ export default function PetForm(props) {
 
   return (
     <div>
-      {/* <button class="bone">
-    <div class="c1"></div>
-    <div class="c2"></div>
-    <div class="c3"></div>
-    <div class="c4"></div>
-    <div class="b1">
-      <div class="b2">
+      <button onClick={handleShow} className="bone">
+    <div className="c1"></div>
+    <div className="c2"></div>
+    <div className="c3"></div>
+    <div className="c4"></div>
+    <div className="b1">
+      <div className="b2">
        Add Pet
       </div>
     </div>
-</button> */}
-      {/* <Button variant="primary" onClick={handleShow}>
-Add Pet
-</Button>
+</button>
+
       <Modal
  show={show}
  onHide={handleClose}
@@ -78,37 +75,9 @@ Add Pet
       </label>
       <br/>
        <Button onClick={() => createPet()}>Add Pet</Button>
-       </Modal> */}
+       </Modal> 
     
     </div>
   );
 }
 
-{/* <Button variant="primary" onClick={handleShow}>
-Add Pet
-</Button>
-
-<Modal
- show={show}
- onHide={handleClose}
- backdrop="static"
- keyboard={false}
->
- <Modal.Header closeButton>
-   <Modal.Title>Add your Pet</Modal.Title>
- </Modal.Header>
- <Modal.Body>
- A profile photo that shows your pet.
- <input type="file" onChange={(evt) => setImage(evt.target.files[0])}/>
- <label>
- Pet Name:
- <input type="text" value={name} onChange={(evt) => setName(evt.target.value)}/>
-</label>
- </Modal.Body>
- <Modal.Footer>
-   <Button variant="secondary" onClick={handleClose}>
-     Close
-   </Button>
-   <Button onClick={() => createPet()}>Add Pet</Button>
- </Modal.Footer>
-</Modal> */}

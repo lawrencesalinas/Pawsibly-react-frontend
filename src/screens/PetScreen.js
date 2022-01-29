@@ -3,6 +3,7 @@ import axios from "axios";
 import apiUrl from "../apiConfig";
 import UsersPets from "../components/UsersPets";
 import CreatePet from '../components/CreatePet'
+import './css/PetScreen.css'
 
 
 function PetScreen(props) {

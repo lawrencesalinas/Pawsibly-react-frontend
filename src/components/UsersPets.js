@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -65,7 +64,6 @@ function UsersPets(props) {
               </div>
             ))}
       </div>
-      {/* <h1>{listOfPets}</h1> */}
       <h6>add a pet</h6>
 
     </div>
