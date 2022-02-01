@@ -4,7 +4,7 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRange } from "react-date-range";
 import { Row, Col, Button, Container} from 'react-bootstrap'
-// import "../css/CreateBooking.css";
+import "../css/CreateBooking.css";
 
 export default function CreateBooking(props) {
   // console.log("this is props for sitter booking", props);
