@@ -26,9 +26,29 @@ export default function CreateBooking(props) {
   }
   
 
- 
+  const createBooking = (e) => {
+    e.preventDefault();
+    const booking = {
+      pet_owner: props.user.id,
+      start_date: startDate,
+      end_date: endDate,
+      sitter: `${id}`
+    };
 
-  
+    fetch(`http://localhost:8000/bookings`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${props.user.token}`,
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((createdBooking) => {
+        console.log("new booking added", createdBooking);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
