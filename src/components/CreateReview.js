@@ -26,7 +26,7 @@ function CreateReview() {
     
   return (
   <div>
-   <button variant='warning'   class="btn-floating btn-large waves-effect waves-light yellow" onClick={handleShow}>
+   <button variant='warning'   className="btn-floating btn-large waves-effect waves-light yellow" onClick={handleShow}>
    <i class="material-icons">comment</i>
       </button>
       <Modal
