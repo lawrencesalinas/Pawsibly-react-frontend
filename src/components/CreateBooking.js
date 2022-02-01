@@ -63,7 +63,7 @@ export default function CreateBooking(props) {
         name="date"
         id="date"
       />
-     
+      <Button className = 'createbooking_button' variant = 'warning' onClick={createBooking}>add</Button>
       </Col>
       </Row>
     </div>
