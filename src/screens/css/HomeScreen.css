@@ -1,0 +1,20 @@
+.header_center{
+    margin-top: 1%;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    max-width: fit-content;
+    padding: 1.2%;
+    height: 30px;
+    border: 1px solid lightgray;
+    border-radius: 999px;
+    margin: 0 auto;
+    margin-bottom: .5%;
+}
+.header_center > input {
+    border: none;
+  padding: 10px;
+  /* take out blue line use outline width 0 */
+  outline-width: 0;
+  outline: none;
+}

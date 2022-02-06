@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Row, Col, Image, Card, Button } from "react-bootstrap";
+import { Row, Col, Image, Card, Button, Modal } from "react-bootstrap";
 import Footer from "../components/Footer";
 import apiUrl from "../apiConfig";
 import axios from "axios";
@@ -11,6 +11,11 @@ export default function ProfileScreen(props) {
   const [image, setImage] = useState();
   const [userData, setUserData] = useState([]);
   const [trigger, setTrigger] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(`${apiUrl}/profile`, {
@@ -51,22 +56,34 @@ export default function ProfileScreen(props) {
       <Row>
         <Col md={3}>
           <Card>
-            <Image src={apiUrl + userData.image} fluid />
-            <Button variant="success" onClick={() => uploadPhoto()}>
+            <Image src={userData.image} fluid />
+            <Button variant="success" onClick={handleShow}>
               upload photo
             </Button>
-            <label>
-              <input
-                type="file"
-                onChange={(evt) => setImage(evt.target.files[0])}
-              />
-            </label>
+            <Modal
+              show={show}
+              onHide={handleClose}
+              backdrop="static"
+              keyboard={false}
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>upload photo</Modal.Title>
+              </Modal.Header>
+              <label>
+                <input
+                  type="file"
+                  onChange={(evt) => setImage(evt.target.files[0])}
+                />
+              </label>
+
+              <Button variant='success 'onClick={() => uploadPhoto()}>upload</Button>
+            </Modal>
           </Card>
         </Col>
 
         <Col md={3}>
           <div className="profilescreen_info">
-            <h3 className="flow-text">Hello, {userData.last_name}!</h3>
+            <h3 class="flow-text">Hello, {userData.last_name}!</h3>
 
             <Row className="profilescreen_buttons">
               <Link className="link" to={`/mybookings/${props.user.id}`}>
@@ -75,8 +92,8 @@ export default function ProfileScreen(props) {
               <Link className="link" to={`/myreviews/${props.user.id}`}>
                 <Button variant="warning">My Reviews</Button>
               </Link>
-              <Link className="link" to={`/contact/${props.user.id}`}>
-                <Button variant="warning">Contact sitter</Button>
+              <Link className="link" to={`/host`}>
+                <Button variant="warning">Host a Pet</Button>
               </Link>
             </Row>
           </div>
@@ -87,10 +104,10 @@ export default function ProfileScreen(props) {
           </Link>
         </Col>
         <Col>
-          <i className="fas fa-paw paw fa-10x"></i>
+          <i class="fas fa-paw paw fa-10x"></i>
         </Col>
       </Row>
-      <Footer />
+   
     </div>
   );
 }

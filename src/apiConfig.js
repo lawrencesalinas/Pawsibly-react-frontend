@@ -1,8 +1,8 @@
 let apiUrl
 const apiUrls = {
     // YOU MUST CHANGE PRODUCTION URL WHEN DEPLOYING
-	production: 'https://aqueous-atoll-85096.herokuapp.com',
-	development: 'http://localhost:8000',
+	production:"https://pawsibly-demo.herokuapp.com",
+	development: "http://127.0.0.1:8000",
 }
 
 if (window.location.hostname === 'localhost') {

@@ -7,7 +7,9 @@ import messages from '../shared/AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-
+const divStyle = {
+    height: '65vh'
+    };
 const SignUp = (props) => {
 	// constructor(props) {
 	// 	super(props)
@@ -56,7 +58,7 @@ const SignUp = (props) => {
 
 
     return (
-        <div className='row'>
+        <div className='row' style={divStyle}>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Sign Up</h3>
                 <Form onSubmit={onSignUp}>
@@ -93,7 +95,7 @@ const SignUp = (props) => {
                             onChange={e => setPasswordConfirmation(e.target.value)}
                         />
                     </Form.Group>
-                    <Button variant='primary' type='submit'>
+                    <Button variant='warning' type='submit'>
                         Submit
                     </Button>
                 </Form>

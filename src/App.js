@@ -15,7 +15,7 @@ import ChangePassword from "./components/auth/ChangePassword";
 import PetDetailScreen from "./screens/PetDetailScreen";
 import SitterDetail from "./screens/SitterDetail";
 import PetScreen from "./screens/PetScreen";
-
+import Footer from "./components/Footer";
 const App = () => {
   const [user, setUser] = useState(null);
   const [msgAlerts, setMsgAlerts] = useState([]);
@@ -60,6 +60,7 @@ const App = () => {
           deleteAlert={deleteAlert}
         />
       ))}
+      <Footer/>
     </Fragment>
   )
 }

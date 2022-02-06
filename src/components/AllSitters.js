@@ -14,7 +14,7 @@ function AllSitters({sitters}) {
             <Row>
             <Col m={6} s={12}>
             
-              <div className="col s5 center">
+              <div className="center">
                 <Card
                   actions={[
                     <a key="1" href='google.com'  className="black-text">

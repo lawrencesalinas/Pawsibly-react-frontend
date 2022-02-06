@@ -37,7 +37,7 @@ setTrigger={setTrigger}
 <div className="createpets">
  <CreatePet user={props.user} setTrigger={setTrigger} /> 
  </div> 
- <Footer/>
+
     </div>
   );
 }

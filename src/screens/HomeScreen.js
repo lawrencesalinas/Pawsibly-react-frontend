@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import AllSitters from "../components/AllSitters";
 import { Icon, Parallax } from "react-materialize";
 import Footer from "../components/Footer";
+import './css/HomeScreen.css'
 
 
 const HomeScreen = (props) => {
@@ -35,11 +36,11 @@ const HomeScreen = (props) => {
           <div className="section white">
             <div className="row container" class="center-align">
               <h2 className="header">
-                find sitters near you by zip code
+                find sitters near you by city or zip code
               </h2>
               <form onSubmit={searchItems}>
                 <div className="input-field">
-                  <input id="zipcode" type="number" name="zipcode" required />
+                  <input value={search} onChange={(e)=> setSearch(e.target.value)} required />
                   <button type="submit" class="btn-floating btn-large waves-effect waves-light red accent-2"><i class="material-icons">send</i></button>
                   <label>
                     <Icon>search</Icon>
@@ -51,7 +52,7 @@ const HomeScreen = (props) => {
           </div>
           <div>
             <Parallax
-              image={<img alt="" src="/cat.png" />}
+              image={<img alt="cat" src="/static/images/cat.png" />}
               options={{
                 responsiveThreshold: 0
               }}
@@ -87,13 +88,13 @@ const HomeScreen = (props) => {
               </div>
             </div>
             <Parallax
-              image={<img alt="" src="/dog.png" />}
+              image={<img alt="" src="/static/images/dog.png" />}
               options={{
                 responsiveThreshold: 0
               }}
             />
           </div>
-          <Footer/>
+ 
         
         </>
       

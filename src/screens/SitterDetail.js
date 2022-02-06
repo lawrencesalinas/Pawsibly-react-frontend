@@ -106,7 +106,6 @@ export default function SitterDetail() {
           </Col>
         </Row>
       </Row>
-      <Footer/>
     </div>
   );
 }
