@@ -6,10 +6,10 @@ import { Row, Image, Col, Card } from "react-bootstrap";
 import Rating from "../components/Rating";
 import apiUrl from "../apiConfig";
 import ReviewList from "../components/ReviewList";
-import Footer from "../components/Footer";
+import CreateBooking from "../components/CreateBooking";
 import './css/SitterDetail.css'
 import CreateReview from "../components/CreateReview";
-
+import { fetchNoAuth } from "../api/fetch";
 export default function SitterDetail({user}) {
   const [singleSitter, setSingleSitter] = useState([]);
   const [sitterReviews, setSitterReviews] = useState([]);
@@ -23,11 +23,15 @@ export default function SitterDetail({user}) {
     }
     fetchData();
   }, [id]);
+
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        `http://localhost:8000/reviews/${id}`
-      );
+        `${apiUrl}/reviews/${id}`
+      )
+      .catch((error) => {
+        console.log(error);
+      });
       setSitterReviews(data.reviews);
     }
     fetchData();
@@ -58,11 +62,11 @@ console.log(sitterReviews);
         </Row>
         <hr></hr>
         <Row>
-          <Col md={8} className="mt-5">
+          <Col md={8} lg={8}  className="mt-5">
             <h2>About</h2>
-            {singleSitter.description}
+         <p> {singleSitter.description}</p> 
           </Col>
-          <Col md={4}>
+          <Col md={4} lg={4}>
             <div className="booking">
               <Row>
                 <Col md={5}>
@@ -76,7 +80,7 @@ console.log(sitterReviews);
                   />
                 </Col>
               </Row>
-              {/* <CreateBooking user={props.user} /> */}
+              <CreateBooking user={user} />
             </div>
           </Col>
         </Row>

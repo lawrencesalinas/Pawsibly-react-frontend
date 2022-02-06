@@ -17,6 +17,7 @@ import SitterDetail from "./screens/SitterDetail";
 import PetScreen from "./screens/PetScreen";
 import Footer from "./components/Footer";
 import CreateReview from "./components/CreateReview";
+import MyBookingScreen from "./screens/MyBookingScreen";
 const App = () => {
   const [user, setUser] = useState(null);
   const [msgAlerts, setMsgAlerts] = useState([]);
@@ -51,6 +52,7 @@ const App = () => {
         <Route path="/change-password" element={<RequireAuth user={user}><ChangePassword msgAlert={msgAlert} user={user} /></RequireAuth>}/>
         <Route path="/sitterlisting/:id" element={<SitterDetail user={user}/>}    />
         <Route path="/sitterlisting/:id" element={<CreateReview user={user}/>}    />
+        <Route path='/mybookings' element={<MyBookingScreen user={user} />} />
       </Routes>
       {msgAlerts.map((msgAlert) => (
         <AutoDismissAlert

@@ -10,7 +10,7 @@ import './css/CreateReview.css'
 
 
 function CreateReview({user, setTrigger}) {
-console.log('user', user);
+
     const [review, setReview] = useState('')
     const [rating, setRating] = useState(0)
     const [show, setShow] = useState(false);
@@ -18,8 +18,14 @@ console.log('user', user);
     let {id}= useParams()
  
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
+    const handleShow = () => {
+      if(user==null){
+        navigate('/sign-in')
+      }else{
+      return setShow(true);
+      }
+    }
     const handleChange = (e) => {
       if(e.target.value > 5){
         return 'too much'

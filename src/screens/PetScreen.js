@@ -4,14 +4,13 @@ import apiUrl from "../apiConfig";
 import UsersPets from "../components/UsersPets";
 import CreatePet from '../components/CreatePet'
 import './css/PetScreen.css'
-import Footer from "../components/Footer";
+import { fetchWithAuth } from "../api/fetch";
+
 
 
 function PetScreen(props) {
   const [userPets, setUserPets] = useState([]);
   const [trigger, setTrigger] = useState(false);
-
-
 
   useEffect(() => {
     async function fetchPets() {

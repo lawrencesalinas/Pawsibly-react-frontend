@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import apiUrl from "../apiConfig";
 import axios from "axios";
 import "./css/ProfileScreen.css";
+import { fetchWithAuth } from "../api/fetch";
 
 export default function ProfileScreen(props) {
   // user data and user pet is called here
@@ -17,16 +18,11 @@ export default function ProfileScreen(props) {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    async function fetchData() {
-      const { data } = await axios.get(`${apiUrl}/profile`, {
-        headers: {
-          Authorization: `Token ${props.user.token}`,
-        },
-      });
-
-      setUserData(data.user);
+    try {
+      fetchWithAuth("profile", setUserData, "user", props.user);
+    } catch (error) {
+      console.log(error);
     }
-    fetchData();
   }, [trigger]);
 
   const uploadPhoto = (e) => {
@@ -34,7 +30,7 @@ export default function ProfileScreen(props) {
     uploadData.append("image", image);
     uploadData.append("id", userData.id);
 
-    fetch("http://localhost:8000/profileImage", {
+    fetch(`${apiUrl}/profileImage`, {
       method: "POST",
       headers: {
         Authorization: `Token ${props.user.token}`,
@@ -49,6 +45,7 @@ export default function ProfileScreen(props) {
       .catch((error) => {
         console.log(error);
       });
+    setShow(false);
   };
 
   return (
@@ -76,7 +73,9 @@ export default function ProfileScreen(props) {
                 />
               </label>
 
-              <Button variant='success 'onClick={() => uploadPhoto()}>upload</Button>
+              <Button variant="success " onClick={() => uploadPhoto()}>
+                upload
+              </Button>
             </Modal>
           </Card>
         </Col>
@@ -86,7 +85,7 @@ export default function ProfileScreen(props) {
             <h3 class="flow-text">Hello, {userData.last_name}!</h3>
 
             <Row className="profilescreen_buttons">
-              <Link className="link" to={`/mybookings/${props.user.id}`}>
+              <Link className="link" to={`/mybookings`}>
                 <Button variant="warning">My Bookings</Button>
               </Link>
               <Link className="link" to={`/myreviews/${props.user.id}`}>
@@ -107,7 +106,6 @@ export default function ProfileScreen(props) {
           <i class="fas fa-paw paw fa-10x"></i>
         </Col>
       </Row>
-   
     </div>
   );
 }
