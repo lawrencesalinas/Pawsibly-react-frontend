@@ -1,28 +1,11 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
-import apiUrl from "../apiConfig";
-import { Button } from "react-bootstrap";
 import AllSitters from "../components/AllSitters";
 import { Icon, Parallax } from "react-materialize";
-import Footer from "../components/Footer";
 import './css/HomeScreen.css'
 
-
-const HomeScreen = (props) => {
+const HomeScreen = ({sitters}) => {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [sitters, setSitters] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const { data } = await axios.get(`${apiUrl}/sitters`)
-      .catch((error) => {
-        console.log(error);
-      });
-      setSitters(data.sitters)
-  }
-    fetchData();
-  }, []);
 
   const searchItems = (e) => {
     e.preventDefault();
@@ -34,6 +17,7 @@ const HomeScreen = (props) => {
     });
     setSearchResults(filteredSitters);
   };
+// console.log('filtered',searchResults);
   return (
     <>
           <div className="section white">

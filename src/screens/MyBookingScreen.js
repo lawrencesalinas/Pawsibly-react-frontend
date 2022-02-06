@@ -13,12 +13,13 @@ function MyBookingScreen({user}) {
           console.log(error);
         }
       }, []);
-      
+
 // console.log(userBooking);
 
   return(
 
    <div>
+<h2 className='center-align'>All Bookings:</h2>
    <UserBooking userBooking={userBooking}/>
    </div>
   )

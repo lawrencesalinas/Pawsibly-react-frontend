@@ -88,19 +88,26 @@ export default function ProfileScreen(props) {
               <Link className="link" to={`/mybookings`}>
                 <Button variant="warning">My Bookings</Button>
               </Link>
-              <Link className="link" to={`/myreviews/${props.user.id}`}>
+              <Link className="link" to={`/myreviews`}>
                 <Button variant="warning">My Reviews</Button>
               </Link>
-              <Link className="link" to={`/host`}>
+              <Link className="link" to={`/hostapet`}>
                 <Button variant="warning">Host a Pet</Button>
               </Link>
             </Row>
           </div>
         </Col>
         <Col className="pt-5">
+          <Row>
           <Link to={`/pets/`}>
             <Button variant="warning">My Pets</Button>
           </Link>
+          </Row>
+          <Row className='pt-2'>
+          <Link to={`/change-password/`}>
+            <Button variant="warning">Change Password</Button>
+          </Link>
+          </Row>
         </Col>
         <Col>
           <i class="fas fa-paw paw fa-10x"></i>

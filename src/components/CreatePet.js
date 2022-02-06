@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {  Button, Modal } from "react-bootstrap";
+import apiUrl from "../apiConfig";
 import './css/CreatePet.css'
 
 export default function PetForm(props) {
@@ -17,7 +18,7 @@ export default function PetForm(props) {
     uploadData.append("name", name);
     uploadData.append("pet_owner", props.user.id);
 
-    fetch("http://localhost:8000/pets", {
+    fetch(`${apiUrl}/pets`, {
       method: "POST",
       headers: {
         Authorization: `Token ${props.user.token}`,

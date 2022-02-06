@@ -18,7 +18,7 @@ export const fetchWithAuth = (endpoint, setState, item, user) => {
 }
 
 
-export const fetchNoAuth = (endpoint, setState, item, user) => {
+export const fetchNoAuth = (endpoint, setState, item) => {
     async function fetchData() {
       try {
         const { data } = await axios.get(`${apiUrl}/${endpoint}`, );

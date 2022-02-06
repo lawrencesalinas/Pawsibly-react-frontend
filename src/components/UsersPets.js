@@ -17,7 +17,7 @@ function UsersPets(props) {
 
   const deletePetById = (id) => {
     axios({
-      url: `http://localhost:8000/pets/${id}`,
+      url: `${apiUrl}/pets/${id}`,
       method: "DELETE",
       headers: {
         Authorization: `Token ${props.user.token}`,
