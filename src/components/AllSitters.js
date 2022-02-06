@@ -5,7 +5,7 @@ import Rating from "../components/Rating";
 
 
 function AllSitters({sitters}) {
- 
+ console.log('this is sitter', sitters);
   return(
        <div>
         {sitters.map(sitter=> {
@@ -41,8 +41,8 @@ function AllSitters({sitters}) {
                     </li>
                     <li>
                       <Rating
-                        value={sitters.rating}
-                        text={`${sitters.numReviews} reviews`}
+                        value={sitter.rating}
+                        text={`${sitter.numReviews} reviews`}
                         color={"#f8e825"}
                       />
                     </li>

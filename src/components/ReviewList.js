@@ -1,12 +1,13 @@
 import React from "react";
 import Rating from "../components/Rating";
 
-function ReviewList(props) {
+function ReviewList({review}) {
+  console.log('props',review);
   return (
     <div className="reviewlist">
-      <h4>{props.review.pet_owner.first_name}</h4>
-      <Rating value={props.review.rating}    color={"#f8e825"}/>
-      <p>review:{props.review.review}</p>
+      <h4>{review.pet_owner.first_name}</h4>
+      <Rating value={review.rating}    color={"#f8e825"}/>
+      <p>review:{review.review}</p>
     </div>
   );
 }

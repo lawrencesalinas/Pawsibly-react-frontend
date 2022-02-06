@@ -50,7 +50,7 @@ function UsersPets(props) {
                   key={pet.id}
                   to={`/pets/${pet.id}`}
                 >
-                    <Image  src={apiUrl+pet.image}  className = 'rounded-circle image'  />
+                    <Image  src={pet.image}  className = 'rounded-circle image'  />
                   <h4 className="pet_name">{pet.name}</h4>
                 </Link>
                 <br></br>

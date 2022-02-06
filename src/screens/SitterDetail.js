@@ -10,9 +10,10 @@ import Footer from "../components/Footer";
 import './css/SitterDetail.css'
 import CreateReview from "../components/CreateReview";
 
-export default function SitterDetail() {
+export default function SitterDetail({user}) {
   const [singleSitter, setSingleSitter] = useState([]);
   const [sitterReviews, setSitterReviews] = useState([]);
+  const [trigger, setTrigger] =useState(false)
   let {id} = useParams();
 
   useEffect(() => {
@@ -30,8 +31,8 @@ export default function SitterDetail() {
       setSitterReviews(data.reviews);
     }
     fetchData();
-  }, [id])
-
+  }, [id,trigger])
+console.log(sitterReviews);
   return (
     <div className="listingdetail">
       <Row>
@@ -100,7 +101,7 @@ export default function SitterDetail() {
               <div className="reviewbox">
                 <h3>Review this sitter</h3>
                 <h5>share your thought with other pet owners</h5>
-                <CreateReview/>
+                <CreateReview setTrigger={setTrigger} user={user}/>
               </div>
             </Card>
           </Col>

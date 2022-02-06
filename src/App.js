@@ -16,6 +16,7 @@ import PetDetailScreen from "./screens/PetDetailScreen";
 import SitterDetail from "./screens/SitterDetail";
 import PetScreen from "./screens/PetScreen";
 import Footer from "./components/Footer";
+import CreateReview from "./components/CreateReview";
 const App = () => {
   const [user, setUser] = useState(null);
   const [msgAlerts, setMsgAlerts] = useState([]);
@@ -48,7 +49,8 @@ const App = () => {
         <Route path="/pets/:id " element={<PetDetailScreen msgAlert={msgAlert} setUser={setUser} />}/>
         <Route path="/sign-out" element={<RequireAuth user={user}><SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} /></RequireAuth>}/>
         <Route path="/change-password" element={<RequireAuth user={user}><ChangePassword msgAlert={msgAlert} user={user} /></RequireAuth>}/>
-        <Route path="/sitterlisting/:id" element={<SitterDetail />} />
+        <Route path="/sitterlisting/:id" element={<SitterDetail user={user}/>}    />
+        <Route path="/sitterlisting/:id" element={<CreateReview user={user}/>}    />
       </Routes>
       {msgAlerts.map((msgAlert) => (
         <AutoDismissAlert

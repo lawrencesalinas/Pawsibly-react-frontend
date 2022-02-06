@@ -1,26 +1,30 @@
 import React, { Fragment } from 'react'
+import context from 'react-bootstrap/esm/AccordionContext'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
+import './Header.css'
 const linkStyle = {
     color: 'white',
     textDecoration: 'none'
 }
+
+
 const authenticatedOptions = (
 	<>
-		<Nav.Link>
+		{/* <Nav.Link>
 			<Link to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
-		</Nav.Link>
+		</Nav.Link> */}
+		<Nav.Link>
+		    <Link to='profile' style={linkStyle}>Profile</Link>
+        </Nav.Link>
 		<Nav.Link>
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>
 		</Nav.Link>
-		<Nav.Link>
-		    <Link to='profile' style={linkStyle}>Profile</Link>
-        </Nav.Link>
 	</>
 )
 
@@ -47,7 +51,7 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
 
-	<Navbar bg='warning' variant='dark' expand='md'>
+	<Navbar bg='warning' variant='dark' expand='md' >
 		<Navbar.Brand>
             <Link to='/' style={linkStyle} style={{'marginLeft':'10px', 'textDecoration':'none'}}>
                 Pawsibly
@@ -55,7 +59,7 @@ const Header = ({ user }) => (
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
 		<Navbar.Collapse id='basic-navbar-nav'>
-			<Nav className='ml-auto'>
+			<Nav className='links'>
 				{/* {user && (
 					<span className='navbar-text mr-2'>Welcome, {user.first_name}</span>
 				)} */}
@@ -64,6 +68,7 @@ const Header = ({ user }) => (
 			</Nav>
 		</Navbar.Collapse>
 	</Navbar>
+
 )
 
 export default Header
